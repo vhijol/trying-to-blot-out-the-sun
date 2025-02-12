@@ -1,0 +1,21 @@
+/*
+    y = a/2 (e^(x/a) + e^-(x/a)) - a
+    
+    ((a/2.0) * ((E.powf(x/a)) + (E.powf(x/a) * - 1.0 ))) - a
+     (a/2.0) * ((E.powf(x/a)) + (E.powf(x/a) * - 1.0 ))
+                (E.powf(x/a)) + (E.powf(x/a) * - 1.0 )
+                       (x/a)           (x/a)
+*/
+
+use std::f64::consts::E;
+
+fn catenary_with_y_as_return(x: f64, a: f64) -> f64 {
+    let doe: f64 = a / 2.0;
+    let ray: f64 = (E.powf(x/a)) + (E.powf(x/a) * - 1.0);
+    let mny: f64 = doe * ray;
+    mny - a
+}
+
+fn main() {
+    println!("{}", catenary_with_y_as_return(1.19234850129783,1.2093845));
+}
